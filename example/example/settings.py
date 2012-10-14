@@ -118,7 +118,9 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.admin',
-
+    'django.contrib.contenttypes',
+    'kombu.transport.django',
+    'djcelery',
     'wall',
 )
 
@@ -150,3 +152,10 @@ LOGGING = {
         },
     }
 }
+
+
+BROKER_URL = 'django://'
+
+
+import djcelery
+djcelery.setup_loader()
